@@ -1,0 +1,253 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #0d1d3b, #122851);
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.topo {
+  img {
+    margin: 30px;
+    border-radius: 10px;
+  }
+  display: flex;
+  justify-content: space-between;
+  nav {
+    display: flex;
+    gap: 30px;
+    margin-top: 70px;
+    margin-right: 75px;
+  }
+  border-bottom: 1px solid white;
+}
+header {
+  display: flex;
+}
+
+.PrimeiraParte {
+  display: flex;
+  font-size: 30px;
+  margin: 30px;
+  img {
+    margin-left: 30vw;
+    width: 500px;
+    margin-top: 50px;
+  }
+
+  p {
+    margin-bottom: 40px;
+  }
+  a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    margin-left: 40px;
+  }
+  a:hover {
+    transform: scale(1.2);
+    background-color: white;
+    color: black;
+  }
+  padding-bottom: 10%;
+}
+
+.Esquerda {
+  display: flex;
+  margin-left: 40px;
+  margin-top: 40px;
+  a {
+    background-color: transparent;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    color: #ffff;
+    background-color: black;
+    padding: 10px;
+    border-radius: 10px;
+  }
+}
+
+.cimapt1 {
+  display: flex;
+  gap: 30px;
+}
+.baixopt2 {
+  display: flex;
+  gap: 30px;
+}
+
+.banner1 {
+  text-align: center;
+}
+
+.SegundaParte {
+  justify-self: center;
+}
+
+/*Parte do contato*/
+
+.banner{
+    text-align: center;
+    justify-self: center;
+}
+
+.banner h3{
+    color: #4ECDC4; 
+}
+
+.PaginaCuidado{
+    
+    padding: 50px;
+    color: #ffffff;
+    justify-self: center;
+}
+
+.Esquerda{
+    flex-direction: left;
+    display: flex;
+}
+
+.Direita{
+    flex-direction: right;
+    display: flex;
+    margin-left: 40px;
+}
+
+.suasjoias{
+    background-color: #2E6B9E;
+    margin: 10px;
+    padding: 10px;
+    color: #c0c2c5;
+    border-radius: 8px;
+    width: 500px;
+    border:#4ECDC4 1px solid;
+    
+}
+
+.suasjoias h4{
+    color: #D8DDE6;
+}
+
+.Botoesdedestaques{
+    display: flex; 
+    justify-content: center;
+    gap: 10px;
+    button{
+        border-radius: 10px;
+        padding: 10px;
+        margin-bottom: 30px;
+        cursor: pointer;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    }
+    button:hover{
+        color: #2E6B9E;
+    }
+}
+
+/*final*/
+.PaginaCuidado{
+    
+    padding: 50px;
+    color: #ffffff;
+    justify-self: center;
+}
+
+.Esquerda{
+    flex-direction: left;
+    display: flex;
+}
+
+.Direita{
+    flex-direction: right;
+    display: flex;
+    margin-left: 40px;
+}
+
+.suasjoias{
+    background-color: #2E6B9E;
+    margin: 10px;
+    padding: 10px;
+    color: #c0c2c5;
+    border-radius: 8px;
+    width: 500px;
+    border:#4ECDC4 1px solid;
+    
+}
+
+.suasjoias h4{
+    color: #D8DDE6;
+}
+
+.PaginaContato {
+    background-color: rgb(231, 241, 239);
+    padding: 60px;
+    color: #000000;
+    border-radius: 12px;
+}
+
+.Dividir {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+.bannerPC {
+    justify-self: center;
+    text-align: center;
+}
+
+.bannerPC p {
+    color: #4ECDC4;
+    font-weight: 500;
+}
+
+.EsquerdaContato {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 20px;
+}
+
+.DireitaContato {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border: 2px solid #4ECDC4;
+    border-radius: 12px;
+    padding: 55px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.DireitaContato input {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.DireitaContato button{
+    background-color: transparent;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+}
+
+.DireitaContato button:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.CaixaAjuda {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
