@@ -1,0 +1,5 @@
+('Nicole Reis', 18, 'nicolereisminecraft@gmail.com', 'Uberlândia'),
+('Murilo Neves', 18, 'murilogfdalaud@gmail.com', 'Araxá'),
+('Gabrielly Evangelista', 19, 'gabrielizinhamenokenti@gmail.com', 'Xique-Xique'),
+('Antônio Silva', 18, 'aztzz.aura.67@gmail.com', 'Nova York'),
+('Rayssa Silva', 18, 'rayssinha.cutecute@gmail.com', 'Nova York'),
