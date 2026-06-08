@@ -1,196 +1,55 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+// Marca o botão ativo e filtra os cards por categoria
+function marcarDestaque(botaoClicado) {
+  // Remove a classe ativo de todos os botões
+  const botoes = document.querySelectorAll('.Botoesdedestaques button');
+  botoes.forEach(btn => btn.classList.remove('ativo'));
 
-<head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pratas Oceano</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
+  // Adiciona a classe ativo no botão clicado
+  botaoClicado.classList.add('ativo');
 
-<body>
-    <div class="topo">
-        <header><img src="imagens/Design sem nome.png" alt="Logo Pratas Oceano" width="800px">
-            <h2>Pratas Oceano</h2>
-        </header>
-        <nav>
-            <a href="#">HOME</a>
-            <a href="#Produtos">PRODUTOS</a>
-            <a href="#Contato">CONTATO</a>
-        </nav>
-    </div>
-    <main>
-        <div class="PrimeiraParte">
-            <div class="Esquerda">
-                <div>
-                    <h2>As melhores pratas da região </h2>
-                    <p>Autenticidade e estilo para todos os momentos. Peças únicas em prata 925 e semijoias selecionadas para brilhar no seu dia a dia.</p>
-                    <a href="#Produtos">Ver Coleção </a>
-                    <a href="#Contato">Fale Conosco </a>
-                </div>
-            </div>
-            <div class="Direita">
-                <div>
-                    <img src="imagens/1.png" alt="Prata Oceano produto destaque" width="350px">
-                </div>
-            </div>
-        </div>
+  // Pega a categoria do botão (normaliza o texto)
+  const categoria = botaoClicado.textContent.trim().toUpperCase();
 
+  // Filtra os cards
+  const cards = document.querySelectorAll('.cards');
+  cards.forEach(card => {
+    const cardCategoria = (card.dataset.categoria || '').toUpperCase();
 
+    if (categoria === 'TODOS' || cardCategoria === categoria) {
+      card.style.display = '';
+      // Animação suave ao aparecer
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(12px)';
+      setTimeout(() => {
+        card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, 10);
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
 
-                <!-- Meio -->
+// Alterna o botão entre "Adicionar" e "Adicionado ✓"
+function alterarBotao(botao) {
+  if (botao.classList.contains('adicionado')) {
+    botao.classList.remove('adicionado');
+    botao.textContent = 'Adicionar';
+  } else {
+    botao.classList.add('adicionado');
+    botao.textContent = 'Adicionado ✓';
+  }
+}
 
-
-
-        <div id="Produtos"> </div>
-        <br>
-        <br>
-        <p></p>
-        
-
-
-        <div class="banner1">
-            <h3>Mais Vendidos</h3>
-            <h1>Produtos em <span>Destaque</span></h1>
-        </div>
-        <div class="Botoesdedestaques">
-            <button class="ativo" onclick="marcarDestaque(this)">TODOS</button>
-            <button onclick="marcarDestaque(this)">ALIANÇAS</button>
-            <button onclick="marcarDestaque(this)">CORRENTES</button>
-            <button onclick="marcarDestaque(this)">SEMIJOIAS</button>
-            <button onclick="marcarDestaque(this)">BRINCOS</button>
-        </div>
-        <div class="SegundaParte">
-            <div class="cimapt1">
-                <div class="cards" data-categoria="CORRENTES"><img src="imagens/colar de prata 2.webp" alt="Colar de prata" width="150px">
-                    <b>Colar de prata</b>
-                    <p>Colar sofisticado em prata 925 para usar todos os dias.</p>
-                    <span>R$ 189,90 <strong class="antigo">R$ 239,90</strong></span>
-                    <button onclick="alterarBotao(this)">Adicionar</button>
-                </div>
-                <div class="cards" data-categoria="CORRENTES"><img src="imagens/colar de prata 3.webp" alt="Colar elegante" width="150px">
-                    <h2>Colar Premium</h2>
-                    <p>Design moderno com acabamento brilhante.</p>
-                    <span>R$ 189,90 <strong class="antigo">R$ 239,90</strong></span>
-                    <button onclick="alterarBotao(this)">Adicionar</button>
-                </div>
-                <div class="cards" data-categoria="SEMIJOIAS"><img src="imagens/colar de prata 4.webp" alt="Colar clássico" width="150px">
-                    <h2>Colar Clássico</h2>
-                    <p>Peça leve e elegante para qualquer look.</p>
-                    <span>R$ 189,90 <strong class="antigo">R$ 239,90</strong></span>
-                    <button onclick="alterarBotao(this)">Adicionar </button>
-                </div>
-            </div>
-            <div class="baixopt2">
-                <div class="cards" data-categoria="ALIANÇAS"><img src="imagens/Imagem aliança 1.webp" alt="Brincos elegantes" width="150px">
-                    <h2>Aneis Elegantes</h2>
-                    <p>Peças delicadas com brilho forte.</p>
-                    <span>R$ 189,90 <strong class="antigo">R$ 239,90</strong></span>
-                    <button onclick="alterarBotao(this)">Adicionar</button>
-                </div>
-                <div class="cards" data-categoria="BRINCOS"><img src="imagens/pulseira 3.webp" alt="Acessórios luxo" width="150px">
-                    <h2>Acessórios Luxo</h2>
-                    <p>Acabamento para ocasiões especiais.</p>
-                    <span>R$ 189,90 <strong class="antigo">R$ 239,90</strong></span>
-                    <button onclick="alterarBotao(this)">Adicionar</button>
-                </div>
-                <div class="cards" data-categoria="SEMIJOIAS"><img src="imagens/colar de prata 3.webp" alt="Semijoias" width="150px">
-                    <h2>Semijoias</h2>
-                    <p>Estilo versátil que combina com tudo.</p>
-                    <span>R$ 189,90 <strong class="antigo">R$ 239,90</strong></span>
-                    <button onclick="alterarBotao(this)">Adicionar</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- maisprabaixodomeio -->
-
-        <div id="PaginaCuidado" class="PaginaCuidado">
-            <div class="banner1">
-                <h3>DURABILIDADE COM <span>GARANTIA</span></h3>
-                <h2>Cuidados com suas Joias</h2>
-            </div>
-          <div class="Dividir2">
-            <div class="Esquerda2">
-                <div class="suasjoias">
-                    <h4>Evite a água</h4>
-                    <p>Retire antes do banho, piscina ou mar. A água acelera o escurecimento natural da prata.</p>
-                </div>
-
-                <div class="suasjoias">
-                    <h4>Limpeza</h4>
-                    <p>Use flanela macia ou pasta específica para prata. Evite produtos abrasivos.</p>
-                </div>
-                
-            </div>
-                <div class="Direita2">
-                    <div class="suasjoias">
-                        <h4>Armazenamento</h4>
-                        <p>Guarde em saquinhos ou caixinhas individuais, longe da umidade e luz solar direta.</p>
-                    </div>
-                    
-                    <div class="suasjoias">
-                        <h4>Perfumes e cremes</h4>
-                        <p>Aplique perfumes e cremes antes de colocar as joias. Produtos químicos oxidam a prata.</p>
-                    </div>
-                </div>
-         </div>
-        </div>
-
-         <!--Pagina de contato no final -->
-         <div id="Contato" class="PaginaContato">
-            <div class="banner1">
-                <h3>FALE CONOSCO</h3>
-                <h2>Estamos aqui para ajudar!</h2>
-            </div>
-
-            <div class="envolvetudo">
-                <div class="direita3">
-
-                    <p>Tem dúvidas ou precisa de ajuda? Nossa equipe está pronta para atender você. Envie uma mensagem e responderemos o mais breve possível.</p>
-                    <form>
-                        <h3>Envie uma mensagem para o nosso <span style="color: green;">WhatsApp</span></h3>
-                        <input type="text" placeholder="Nome completo" id="NomeCompleto" required>
-                        <input type="text" placeholder="Assunto..." required>
-                        <button onclick="AjudaEnviarMensagem()">Enviar Mensagem</button>
-                    </form>
-                </div>
-
-                <div class="esquerda3">
-                    <h3>Informações de Contato</h3>
-                    <p><i class="fa-solid fa-location-dot"></i> Endereço: Rua das Pratas, 123 - Cidade Oceano</p>
-                    <p><i class="fa-solid fa-phone"></i> Telefone: (11) 98765-4321</p>
-                    <p><i class="fa-solid fa-envelope"></i> E-mail: contato@oceaneprata.com</p>
-                    <p><i class="fa-solid fa-clock"></i> Horário de Atendimento: Segunda a Sexta, das 9h às 18h</p>
-                    <p><i class="fa-solid fa-headset"></i> Suporte 24/7 para dúvidas e assistência.</p>
-                </div>
-            </div>
-        </div>
-    </main>
-<footer>
-    <div class="footer-titulo"><p></p>
-    OCEANE PRATA
-    </div>
-        <div class="medias-sociais">
-            <i class="fa-brands fa-tiktok"></i>
-            <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-brands fa-whatsapp"></i>
-        </div>
-        <ul class="Links">
-            <li> <a href="#PaginaCuidado">Cuidados</a> </li>
-            <li> <a href="#Produtos">Produtos</a> </li>
-        </ul>
-        <div class="Line"></div>
-        <p class="copyright">
-            Oceane Prata @ 2026
-        </p>
-     </footer>
-    <script src="script.js"></script>
-</body>
-
-</html>
+// Função do formulário de contato (WhatsApp)
+function AjudaEnviarMensagem() {
+  const nome = document.getElementById('NomeCompleto').value.trim();
+  if (!nome) {
+    alert('Por favor, preencha seu nome.');
+    return;
+  }
+  const numero = '5511987654321'; // Substitua pelo número real
+  const mensagem = encodeURIComponent(`Olá! Meu nome é ${nome}. Gostaria de mais informações.`);
+  window.open(`https://wa.me/${numero}?text=${mensagem}`, '_blank');
+}
