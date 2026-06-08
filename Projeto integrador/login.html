@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratas Oceano</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVr..." crossorigin="anonymous" />
+
+    <!-- ✅ Google Identity Services (API moderna) -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <!-- ✅ SUBSTITUA pelo seu Client ID -->
+    <meta name="google-signin-client_id" content="SEU_CLIENT_ID.apps.googleusercontent.com">
+</head>
+
+<body class="Body_Pagina2">
+    <div class="topo">
+        <header><img src="imagens/Design sem nome.png" alt="Logo Pratas Oceano" width="800px">
+            <h2>OCEANE PRATA</h2>
+        </header>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="index.html">CONTATO</a>
+            <a href="#Produtos">PRODUTOS</a>
+            <a href="login.html"><span style="background-color: rgb(11, 146, 170);padding: 10px; color: rgb(255, 255, 255); border-radius: 5px;">LOGIN</span></a>
+        </nav>
+    </div>
+    <main class="pagina2">
+        <div class="login_container">
+            <h2>Criar conta</h2>
+            <div class="logindefora">
+                <div id="g_id_onload"
+                    data-client_id="SEU_CLIENT_ID.apps.googleusercontent.com"
+                    data-callback="onSignIn"
+                    data-auto_prompt="false">
+                </div>
+                <div class="g_id_signin"
+                    data-type="standard"
+                    data-shape="rectangular"
+                    data-theme="outline"
+                    data-text="signin_with"
+                    data-size="large"
+                    data-locale="pt-BR">
+                </div>
+                <p id="status-login" style="margin-top:12px; font-size:13px; color:#aaa; font-family:sans-serif;"></p>
+            </div>
+        </div>
+    </main>
+
+    <script src="script2.js"></script>
+</body>
+
+</html>
