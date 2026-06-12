@@ -7,7 +7,7 @@ $senha = $_POST["senha"];
 $confirmar = $_POST["confirmar_senha"];
 
 if ($senha != $confirmar) {
-    die("As senhas não coincidem.");
+    die("As senhas inseridas não correspondem.");
 }
 
 $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
