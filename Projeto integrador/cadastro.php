@@ -12,7 +12,7 @@ if ($senha != $confirmar) {
 
 $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
-$sql = "INSERT INTO usuarios (email, senha) VALUES (?, ?)";
+$sql = "INSERT INTO Login (email, senha) VALUES (?, ?)";
 
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ss", $email, $senhaHash);

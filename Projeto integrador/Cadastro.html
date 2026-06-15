@@ -25,22 +25,24 @@
     </div>
 <body class="Pagina2">
     <main class="main2">
+        <form action="cadastro.php" method="POST">
         <div class="paginaloguin">
             <h2>Cadastre-se</h2>
             <label>Email</label>
-            <input type="email" placeholder="username@email.com">
+            <input type="email" name="email" placeholder="username@email.com">
             <label>Crie uma senha</label>
-            <input type="password" placeholder="Password">
+            <input type="password" name="senha" placeholder="Password">
             <label> Confirme sua senha </label>
-            <input type="confirm_password" placeholder="Password">
-            <button onclick="entrar()">Entrar</button>
+            <input type="password" name="confirmar_senha" placeholder="Password">
+            <button type="submit">Cadastrar</button>
             <p> Esqueceu sua senha?&nbsp; <a href="esqueci.html"> Clique aqui </a></p>
             <span>Ou continue com</span><br>
             <div style="display: flex; margin-top: 5px;">
                 <button><i class="fa-brands fa-google"></i></button>&nbsp;&nbsp;
                 <button><i class="fa-brands fa-apple"></i></button>&nbsp;&nbsp;
                 <button><i class="fa-brands fa-facebook"></i></button>&nbsp;&nbsp;
-            </div> <br>
+            </div> 
+        </form><br>
             <div style="display: flex; gap: 7px;" class="cadastro">
                 <span>Já tem uma conta? </span><a href="login.html">Login</a>
             </div>
