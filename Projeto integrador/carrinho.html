@@ -30,7 +30,102 @@
     </div>
     <br
     <main>
+<p class="textinho-de-cima">Meu Carrinho</p>
+  <h1>Itens <span>Selecionados</span></h1>
 
+  <div class="grade-principal">
+    <div>
+      <div class="listinha-de-produtos">
+
+        <div class="produto">
+          <div class="quadradinho">◇</div>
+          <div class="informacoes">
+            <strong>Colar de Prata</strong>
+            <small>Prata 925 · Uso diário</small>
+            <div class="quantidade">
+              <button onclick="change(this,-1)">−</button>
+              <span>1</span>
+              <button onclick="change(this,1)">+</button>
+            </div>
+          </div>
+          <div class="coluna-de-preco">
+            <div class="preco-velho">R$ 239,90</div>
+            <div class="preco-bonito">R$ 189,90</div>
+          </div>
+          <button class="botao-lixeira" onclick="this.closest('.produto').remove()">🗑</button>
+        </div>
+
+        <div class="produto">
+          <div class="quadradinho">♡</div>
+          <div class="informacoes">
+            <strong>Colar Premium</strong>
+            <small>Design moderno · Acabamento brilhante</small>
+            <div class="quantidade">
+              <button onclick="change(this,-1)">−</button>
+              <span>2</span>
+              <button onclick="change(this,1)">+</button>
+            </div>
+          </div>
+          <div class="coluna-de-preco">
+            <div class="preco-velho">R$ 239,90</div>
+            <div class="preco-bonito">R$ 189,90</div>
+          </div>
+          <button class="botao-lixeira" onclick="this.closest('.produto').remove()">🗑</button>
+        </div>
+
+        <div class="produto">
+          <div class="quadradinho">⌀</div>
+          <div class="informacoes">
+            <strong>Colar Clássico</strong>
+            <small>Peça leve e elegante</small>
+            <div class="quantidade">
+              <button onclick="change(this,-1)">−</button>
+              <span>1</span>
+              <button onclick="change(this,1)">+</button>
+            </div>
+          </div>
+          <div class="coluna-de-preco">
+            <div class="preco-velho">R$ 239,90</div>
+            <div class="preco-bonito">R$ 189,90</div>
+          </div>
+          <button class="botao-lixeira" onclick="this.closest('.produto').remove()">🗑</button>
+        </div>
+
+      </div>
+
+      <div class="area-do-cupom" style="margin-top:0.8rem;">
+        <input type="text" placeholder="Código de cupom..." />
+        <button>Aplicar</button>
+      </div>
+    </div>
+
+    <div class="resuminho">
+      <h2>Resumo do Pedido</h2>
+
+      <div class="linhazinha"><span class="rotulo">Subtotal (4 itens)</span><span>R$ 759,60</span></div>
+      <div class="linhazinha"><span class="rotulo">Desconto</span><span class="vermelhinho">− R$ 200,00</span></div>
+      <div class="linhazinha"><span class="rotulo">Frete</span><span class="verdinho">Grátis</span></div>
+      <div class="linhazinha"><span class="rotulo">Cupom <span class="etiqueta">PRATA10</span></span><span class="vermelhinho">− R$ 56,97</span></div>
+
+      <hr />
+
+      <div class="total-grandao">
+        <strong>Total</strong>
+        <span class="valor-final">R$ 502,63</span>
+      </div>
+
+      <button class="botao-finalizar">Finalizar Compra ↗</button>
+      <button class="botao-continuar">Continuar Comprando</button>
+
+      <p class="aviso-seguranca">🔒 Pagamento 100% seguro e criptografado</p>
+
+      <div class="formas-de-pagar">
+        <div class="bandeirinha">VISA</div>
+        <div class="bandeirinha">MASTER</div>
+        <div class="bandeirinha">PIX</div>
+        <div class="bandeirinha">BOLETO</div>
+      </div>
+    </div>
     </main>
     <footer class="footer">
         <div class="footer-titulo">
