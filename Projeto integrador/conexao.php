@@ -2,7 +2,7 @@
 
 $host = "sql205.infinityfree.com";
 $usuario = "if0_41468828";
-$senha = "SsPR0aS5KmKz";
+$senha = "SUA_SENHA";
 $banco = "if0_41468828_banco_de_dados_oceane";
 
 $conn = new mysqli($host, $usuario, $senha, $banco);
