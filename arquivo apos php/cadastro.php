@@ -1,43 +1,53 @@
 <?php
-
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+$mensagem = "";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     include("conexao.php");
-
-    $email = $_POST["email"];
+    $email = trim($_POST["email"]);
     $senha = $_POST["senha"];
     $confirmar = $_POST["confirmar_senha"];
-
-    if ($senha != $confirmar) {
-        die("As senhas inseridas não correspondem.");
-    }
-
-    $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
-
-    $sql = "INSERT INTO Login (email, senha) VALUES (?, ?)";
-
-    $stmt = $conn->prepare($sql);
-
-    if (!$stmt) {
-        die("Erro SQL: " . $conn->error);
-    }
-
-    $stmt->bind_param("ss", $email, $senhaHash);
-
-    if ($stmt->execute()) {
-        echo "<script>
-                alert('Cadastro realizado com sucesso!');
-                window.location.href='login.php';
-              </script>";
-        exit();
+    if (empty($email) || empty($senha) || empty($confirmar)) {
+        $mensagem = "Todos os campos são obrigatórios.";
+    } elseif ($senha != $confirmar) {
+        $mensagem = "As senhas não correspondem.";
+    } elseif (strlen($senha) < 6) {
+        $mensagem = "A senha deve ter pelo menos 6 caracteres.";
     } else {
-        echo "Erro ao cadastrar: " . $stmt->error;
-    }
+        $sqlVerifica = "SELECT id FROM Login WHERE email = ?";
+        $stmtVerifica = $conn->prepare($sqlVerifica);
+        $stmtVerifica->bind_param("s", $email);
+        $stmtVerifica->execute();
+        $resultado = $stmtVerifica->get_result();
+        if ($resultado->num_rows > 0) {
+            $mensagem = "Este email já está cadastrado.";
+        } else {
+            $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+            $sql = "INSERT INTO Login (email, senha) VALUES (?, ?)";
+            $stmt = $conn->prepare($sql);
+            if ($stmt) {
+                $stmt->bind_param("ss", $email, $senhaHash);
+                if ($stmt->execute()) {
+                    echo "
+                    <script>
+                        alert('Cadastro realizado com sucesso!');
+                        window.location.href='login.php';
+                    </script>
+                    ";
+                    exit();
+                } else {
+                    $mensagem = "Erro ao cadastrar.";
+                }
+                $stmt->close();
+            } else {
+                $mensagem = "Erro no servidor.";
+            }
+        }
+$stmtVerifica->close();}
+    $conn->close();
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -53,41 +63,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
 </head>
- <div class="topo">
+<body class="Pagina2">
+    <div class="topo">
         <header><img src="imagens/Design sem nome.png" alt="Logo Pratas Oceano" width="800px">
             <h2>OCEANE PRATA</h2>
         </header>
         <nav>
             <a href="index.php">HOME</a>
-            <a href="index.html">CONTATO</a>
-            <a href="index.html">PRODUTOS</a>
-            <a href="login.html"><span style="background-color: rgb(11, 146, 170);padding: 10px; color: rgb(255, 255, 255); border-radius: 8px;">LOGIN</span></a>
+            <a href="index.php#Produtos">PRODUTOS</a>
+            <a href="index.php#Contato">CONTATO</a>
+            <a href="login.php"><span style="background-color: rgb(11, 146, 170);padding: 10px; color: rgb(255, 255, 255); border-radius: 8px;">LOGIN</span></a>
         </nav>
     </div>
-<body class="Pagina2">
+
     <main class="main2">
         <form action="cadastro.php" method="POST">
-        <div class="paginaloguin">
-            <h2>Cadastre-se</h2>
-            <label>Email</label>
-            <input type="email" name="email" placeholder="username@email.com">
-            <label>Crie uma senha</label>
-            <input type="password" name="senha" placeholder="Password">
-            <label> Confirme sua senha </label>
-            <input type="password" name="confirmar_senha" placeholder="Password">
-            <button type="submit">Cadastrar</button>
-            <p> Esqueceu sua senha?&nbsp; <a href="esqueci.html"> Clique aqui </a></p>
-            <span>Ou continue com</span><br>
-            <div style="display: flex; margin-top: 5px;">
-                <button><i class="fa-brands fa-google"></i></button>&nbsp;&nbsp;
-                <button><i class="fa-brands fa-apple"></i></button>&nbsp;&nbsp;
-                <button><i class="fa-brands fa-facebook"></i></button>&nbsp;&nbsp;
-            </div> 
-        </form><br>
-            <div style="display: flex; gap: 7px;" class="cadastro">
-                <span>Já tem uma conta? </span><a href="login.php">Login</a>
+            <div class="paginaloguin">
+                <h2>Cadastre-se</h2>
+                <?php if ($mensagem): ?>
+                    <p style="color: red;"><?php echo htmlspecialchars($mensagem); ?></p>
+                <?php endif; ?>
+                <label>Email</label>
+                <input type="email" name="email" placeholder="username@email.com" required>
+                <label>Crie uma senha</label>
+                <input type="password" name="senha" placeholder="Mínimo 6 caracteres" required>
+                <label>Confirme sua senha</label>
+                <input type="password" name="confirmar_senha" placeholder="Confirme a senha" required>
+                <button type="submit">Cadastrar</button>
+                <p>Esqueceu sua senha? <a href="esqueci.php">Clique aqui</a></p>
+                <div style="display: flex; gap: 7px; justify-content: center;">
+                    <span>Já tem uma conta?</span>
+                    <a href="login.php">Login</a>
+                </div>
             </div>
-        </div>
+        </form>
     </main>
 
         <footer class="footer2">
@@ -103,8 +112,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         </div>
         <ul class="Links">
-            <li> <a href="index.html#Produtos">Produtos</a> </li>
-            <li> <a href="index.html#PaginaCuidado">Cuidados</a> </li>
+            <li><a href="index.php#Produtos">Produtos</a></li>
+            <li><a href="index.php#Cuidados">Cuidados</a></li>
         </ul>
         <div class="Line"></div>
         <p class="copyright">

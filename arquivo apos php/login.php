@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(isset($_SESSION["email"])){
+    header("Location: index.php");
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -36,7 +40,6 @@ session_start();
     </div>
 
     <main class="main2">
-
         <form action="erro.php" method="POST">
 
             <div class="paginaloguin">
@@ -51,10 +54,7 @@ session_start();
 
                 <button type="submit">Entrar</button>
 
-                <p>
-                    Esqueceu sua senha?
-                    <a href="esqueci.php">Clique aqui</a>
-                </p>
+                <p>Esqueceu sua senha? <a href="esqueci.php">Clique aqui</a></p>
 
                 <div style="display: flex; gap: 7px;" class="cadastro">
                     <span>Ainda não tem uma conta?</span>
@@ -79,8 +79,8 @@ session_start();
             <a style="color: aliceblue;" href="https://web.whatsapp.com/"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
         <ul class="Links">
-            <li> <a href="index.html#Produtos">Produtos</a> </li>
-            <li> <a href="index.html#PaginaCuidado">Cuidados</a> </li>
+            <li><a href="index.php#Produtos">Produtos</a></li>
+            <li><a href="index.php#Cuidados">Cuidados</a></li>
         </ul>
         <div class="Line"></div>
         <p class="copyright">

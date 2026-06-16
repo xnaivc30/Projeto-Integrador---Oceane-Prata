@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+        rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratas Oceano</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="Pagina1">
+    <div class="topo">
+        <header><img src="imagens/Design sem nome.png"
+                alt="Logotipo da loja Pratas Oceano com letras elegantes sobre fundo branco" width="800px">
+            <h2>OCEANE PRATA</h2>
+        </header>
+        <nav>
+            <a href="index.php">HOME</a>
+            <a href="#Produtos">PRODUTOS</a>
+            <a href="#Contato">CONTATO</a>
+            <a href="login.php"><span
+                    style="background-color: rgb(11, 146, 170);padding: 10px; color: rgb(255, 255, 255); border-radius: 8px;">LOGIN</span></a>
+            <a href="carrinho.php"><i class="fa-solid fa-cart-shopping"></i></a>
+        </nav>
+    </div>
+    <main>
+        <div class="PrimeiraParte">
+            <div class="Esquerda">
+                <div>
+                    <h2>As melhores pratas da região </h2>
+                    <p>Autenticidade e estilo para todos os momentos. Peças únicas em prata 925 e semijoias selecionadas
+                        para brilhar no seu dia a dia.</p>
+                    <a href="#Produtos">Ver Coleção </a>
+                    <a href="#Contato">Fale Conosco </a>
+                </div>
+            </div>
+            <div class="Direita">
+                <div>
+                    <img src="imagens/1.png" alt="Prata Oceano produto destaque" width="350px">
+                </div>
+            </div>
+        </div>
+        <!-- Meio -->
+        <div id="Produtos"> </div>
+        <br>
+        <br>
+        <p></p>
+
+
+
+        <div class="banner1">
+            <h3>Mais Vendidos</h3>
+            <h1>Produtos em <span>Destaque</span></h1>
+        </div>
+        <div class="Botoesdedestaques">
+            <button class="ativo" onclick="marcarDestaque(this)">TODOS</button>
+            <button onclick="marcarDestaque(this)">ALIANÇAS</button>
+            <button onclick="marcarDestaque(this)">CORRENTES</button>
+            <button onclick="marcarDestaque(this)">SEMIJOIAS</button>
+            <button onclick="marcarDestaque(this)">BRINCOS</button>
+        </div>
+        <div class="SegundaParte">
+            <div class="cimapt1">
+                <div class="cards" data-categoria="CORRENTES"><img src="imagens/colar de prata 2.webp"
+                        alt="Colar de prata" width="150px">
+                    <b>Colar de prata</b>
+                    <p>Colar sofisticado em prata 925 para usar todos os dias.</p>
+                    <span>R$ 189,90 <strong class="antigo">R$ 239,90</strong></span>
+                    <form action="adicionar_carrinho.php" method="POST">
+                        <input type="hidden" name="produto_id" value="1">
+                        <input type="hidden" name="nome_produto" value="Colar de prata">
+                        <input type="hidden" name="preco" value="189.90">
+                        <button type="submit">Adicionar</button>
+                    </form>
+                </div>
+                <div class="cards" data-categoria="CORRENTES"><img src="imagens/colar de prata 3.webp"
+                        alt="Colar elegante" width="150px">
+                    <h2>Colar Premium</h2>
+                    <p>Design moderno com acabamento brilhante.</p>
+                    <span>R$ 189,90 <strong class="antigo">R$ 239,90</strong></span>
+                    <form action="adicionar_carrinho.php" method="POST">
+                        <input type="hidden" name="produto_id" value="2">
+                        <input type="hidden" name="nome_produto" value="Colar Premium">
+                        <input type="hidden" name="preco" value="189.90">
+                        <button type="submit">Adicionar</button>
+                    </form>
+                </div>
+                <div class="cards" data-categoria="SEMIJOIAS"><img src="imagens/colar de prata 4.webp"
+                        alt="Colar clássico" height="220px" width="150px">
+                    <h2>Colar Clássico</h2>
+                    <p>Peça leve e elegante para qualquer <br> look.</p>
+                    <span>R$ 189,90 <strong class="antigo">R$ 239,90</strong></span>
+                    <form action="adicionar_carrinho.php" method="POST">
+                        <input type="hidden" name="produto_id" value="3">
+                        <input type="hidden" name="nome_produto" value="Colar Clássico">
+                        <input type="hidden" name="preco" value="189.90">
+                        <button type="submit">Adicionar</button>
+                    </form>
+                </div>
+            </div>
+            <div class="baixopt2">
+                <div class="cards" data-categoria="ALIANÇAS"><img src="imagens/Imagem aliança 1.webp"
+                        alt="Brincos elegantes" height="220px" width="150px">
+                    <h2>Aneis Elegantes</h2>
+                    <p>Peças delicadas com brilho <br> forte.</p>
+                    <span>R$ 189,90 <strong class="antigo">R$ 239,90</strong></span>
+                <form action="adicionar_carrinho.php" method="POST">
+    <input type="hidden" name="produto_id" value="4">
+    <input type="hidden" name="nome_produto" value="Aneis Elegantes">
+    <input type="hidden" name="preco" value="189.90">
+    <button type="submit">Adicionar</button>
+            </form>
+                </div>
+                <div class="cards" data-categoria="BRINCOS"><img src="imagens/pulseira 3.webp" alt="Acessórios luxo"
+                        width="150px">
+                    <h2>Acessórios Luxo</h2>
+                    <p>Acabamento para ocasiões <br> especiais.</p>
+                    <span>R$ 189,90 <strong class="antigo">R$ 239,90</strong></span>
+                    <form action="adicionar_carrinho.php" method="POST">
+                        <input type="hidden" name="produto_id" value="5">
+                        <input type="hidden" name="nome_produto" value="Acessórios Luxo">
+                        <input type="hidden" name="preco" value="189.90">
+                        <button type="submit">Adicionar</button>
+                    </form>
+                </div>
+                <div class="cards" data-categoria="SEMIJOIAS"><img src="imagens/colar de prata 3.webp" alt="Semijoias"
+                        width="150px">
+                    <h2>Semijoias</h2>
+                    <p>Estilo versátil que combina com <br> tudo.</p>
+                    <span>R$ 189,90 <strong class="antigo">R$ 239,90</strong></span>
+                    <form action="adicionar_carrinho.php" method="POST">
+                        <input type="hidden" name="produto_id" value="6">
+                        <input type="hidden" name="nome_produto" value="Semijoias">
+                        <input type="hidden" name="preco" value="189.90">
+                        <button type="submit">Adicionar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- maisprabaixodomeio -->
+
+        <div id="PaginaCuidado" class="PaginaCuidado">
+            <div class="banner1">
+                <h3>DURABILIDADE COM <span>GARANTIA</span></h3>
+                <h2>Cuidados com suas Joias</h2>
+            </div>
+            <div class="Dividir2">
+                <div class="Esquerda2">
+                    <div class="suasjoias">
+                        <h4>Evite a água</h4>
+                        <p>Retire antes do banho, piscina ou mar. A água acelera o escurecimento natural da prata.</p>
+                    </div>
+                    <br>
+                    <div class="suasjoias">
+                        <h4>Limpeza</h4>
+                        <p>Use flanela macia ou pasta específica para prata. Evite produtos abrasivos.</p>
+                    </div>
+
+                </div>
+                <div class="Direita2">
+                    <div class="suasjoias">
+                        <h4>Armazenamento</h4>
+                        <p>Guarde em saquinhos ou caixinhas individuais, longe da umidade e luz solar direta.</p>
+                    </div>
+                    <br>
+                    <div class="suasjoias">
+                        <h4>Perfumes e cremes</h4>
+                        <p>Aplique perfumes e cremes antes de colocar as joias. Produtos químicos oxidam a prata.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Pagina de contato no final -->
+        <div id="Contato" class="PaginaContato">
+            <div class="banner1">
+                <h2>FALE <span style="color: gold;">CONOSCO</span> </h3>
+                    <h2><span style="color: #4ecdc4;">Estamos aqui para ajudar!</span></h2>
+            </div><br><br>
+
+            <div class="envolvetudo">
+                <div class="direita3">
+                    <p>Tem dúvidas ou precisa de ajuda? Nossa equipe está pronta para atender você. Envie uma mensagem e
+                        responderemos o mais breve possível.</p>
+                    <h3>Envie uma mensagem para o nosso <span style="color: rgb(50, 173, 50);">WhatsApp</span></h3>
+                    <form action="">
+                        <input id="NomeCompleto" type="text" placeholder="Nome completo" required>
+                        <input id="Assunto" type="text" placeholder="Assunto..." required><br><br><br>
+                        <button onclick="AjudaEnviarMensagem()">Enviar Mensagem</button> <br>
+                        <p id="resultadoprecisadeajuda"></p>
+                    </form>
+                </div>
+
+                <div class="esquerda3">
+                    <h3>Informações de Contato</h3>
+                    <p><i class="fa-solid fa-location-dot"></i> Endereço: Rua das Pratas, 123 - Cidade Oceano</p>
+                    <p><i class="fa-solid fa-phone"></i> Telefone: (11) 98765-4321</p>
+                    <p><i class="fa-solid fa-envelope"></i> E-mail: contato@oceaneprata.com</p>
+                    <p><i class="fa-solid fa-clock"></i> Horário de Atendimento: Segunda a Sexta, das 9h às 18h</p>
+                    <p><i class="fa-solid fa-headset"></i> Suporte 24/7 para dúvidas e assistência.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-titulo">
+            <p></p>
+            OCEANE PRATA
+        </div>
+        <div class="medias-sociais">
+
+            <a style="color: aliceblue;" href="https://www.tiktok.com/pt-BR/"><i class="fa-brands fa-tiktok"></i></a>
+            <a style="color: aliceblue;" href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+            <a style="color: aliceblue;" href="https://www.facebook.com/?locale=pt_BR"><i
+                    class="fa-brands fa-facebook"></i></a>
+            <a style="color: aliceblue;" href="https://web.whatsapp.com/"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+        <ul class="Links">
+            <li> <a href="#Produtos">Produtos</a> </li>
+            <li> <a href="#PaginaCuidado">Cuidados</a> </li>
+        </ul>
+        <div class="Line"></div>
+        <p class="copyright">
+            Oceane Prata &copy; 2026
+        </p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
